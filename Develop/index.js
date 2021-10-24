@@ -1,13 +1,76 @@
 // TODO: Include packages needed for this application
-
+const inquirer = require('inquirer');
+const fs = require('fs');
+const generateMarkdown = require("./utils/generateMarkdown")
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = [
+    {
+        type: 'input',
+        name: 'title',
+        message: 'What is your project title?'
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: 'Provide a description of your project.'
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'What steps are required to install your project?'
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Provide instructions and examples for use.'
+    },
+    {
+        type: 'input',
+        name: 'contributing',
+        message: 'Who collaborated on this project with you?'
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'Place your tests here.'
+    },
+    {
+        type: 'rawlist',
+        name: 'licenseSelection',
+        message: 'Which license did you use for your project?',
+        choices: [
+            'none',
+            'Apache 2.0', 
+            'GNU GPL 3.0', 
+            'MIT License', 
+            'Mozilla Public 2.0'
+        ]
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'What is your github username?'
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?'
+    }
+];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeToFile = (fileName, data) => {
+    fs.writeFile(fileName, data, (err) => err ? console.error(err) : console.log('README successfully written!')
+    );
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions).then((data) => {
+        var templateData = generateMarkdown(data);
+        writeToFile("README.md", templateData);
+    });
+}
 
 // Function call to initialize app
 init();
