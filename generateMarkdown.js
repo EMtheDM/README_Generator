@@ -2,13 +2,13 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license.licenseSelection == 'MIT License') {
-    return `[![License: MIT] (https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)`
+    return `[![License: MIT] (https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)`;
   } else if (license.licenseSelection == 'Apache 2.0') {
-    return `[![License: Apache 2.0] (https://img.shields.io/badge/License-Apache%202.0-green.svg)] (https://opensource.org/licenses/Apache-2.0)`
+    return `[![License: Apache 2.0] (https://img.shields.io/badge/License-Apache%202.0-green.svg)] (https://opensource.org/licenses/Apache-2.0)`;
   } else if (license.licenseSelection == 'GNU GPL 3.0') {
-    return `[![License: GNU GPL v3.0] (https://img.shields.io/badge/License-GPL%20v3.0-blue.svg)] (http://www.gnu.org/licenses/gpl-3.0)`
+    return `[![License: GNU GPL v3.0] (https://img.shields.io/badge/License-GPL%20v3.0-blue.svg)] (http://www.gnu.org/licenses/gpl-3.0)`;
   } else if (license.licenseSelection == 'Mozilla Public 2.0') {
-    return `[![License: Mozilla Public 2.0] (https://img.shields.io/badge/License-MPL%20v3.0-orange.svg)] (https://opensource.org/licenses/MPL-2.0)`
+    return `[![License: Mozilla Public 2.0] (https://img.shields.io/badge/License-MPL%20v3.0-orange.svg)] (https://opensource.org/licenses/MPL-2.0)`;
   } else {
     return '';
   };
@@ -41,19 +41,19 @@ function generateMarkdown(data) {
   ${data.description}
   ${renderLicenseBadge(data.licenseSelection)}
   ## Table of Contents
-  1. [Installation] (#installation)
-  2. [Usage] (#usage)
-  3. [License] (#license)
-  4. [Contributing] (#contributing)
-  5. [Tests] (#tests)
-  6. [Questions] (#questions)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contribution](#contribution)
+  * [Tests](#tests)
+  * [Questions](#questions)
   ## Installation
   ${data.installation}
   ## Usage
   ${data.usage}
   ## License
   ${renderLicenseLink(data.licenseSelection)}
-  ##Contributing
+  ## Contribution
   ${data.contributing}
   ## Tests
   ${data.tests}
