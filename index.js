@@ -36,7 +36,7 @@ const questions = [
     },
     {
         type: 'rawlist',
-        name: 'licenseSelection',
+        name: 'license',
         message: 'Which license did you use for your project?',
         choices: [
             'MIT License',
